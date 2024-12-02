@@ -5,7 +5,6 @@ const LoginLayout = ({ children, height = "", title }) => {
   return (
     <Box
       sx={{
-        marginTop:"10vh",
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",

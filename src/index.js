@@ -7,8 +7,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import RegisterPage from "./pages/RegisterPage";
 import FileUploadForm from "./pages/FileUploadForm";
 import HomePage from "./pages/HomePage";
-import LoginPage from '../src/pages/LoginPage';
+import LoginPage from "../src/pages/LoginPage";
 import Spinner from "./Reusable Components/Spinner";
+import About from "./pages/About";
 
 const Media = lazy(() => import("./pages/Media"));
 
@@ -37,6 +38,10 @@ const route = createBrowserRouter([
         <Media />
       </Suspense>
     ),
+  },
+  {
+    path: "/about",
+    element: <About />,
   },
 ]);
 root.render(
