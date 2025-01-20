@@ -95,10 +95,10 @@ export default function FileUploadForm() {
   return (
     <PageLayout>
       <div
-        style={{ backgroundImage: `url(${bgFileUpload})` }}
-        className="mt-[9vh] flex flex-col justify-center items-center gap-10 p-10 h-screen w-auto border-2 border-solid border-black bg-no-repeat bg-cover bg-center"
+        style={{ backgroundImage: url(`${bgFileUpload}`) }}
+        className="mt-[9vh] flex flex-col  justify-center items-center gap-10 p-10 min-h-screen w-auto bg-no-repeat bg-cover bg-center"
       >
-        <div className="flex flex-col justify-center items-center gap-6 shadow-2xl mt-5 p-2 bg-opacity-80 bg-slate-100 sm:w-[90%] md:w-[70%] lg:w-[50%] sm:h-[80%] md:h-[95%] rounded-xl">
+        <div className="flex flex-col justify-center items-center gap-6 shadow-2xl mt-5 p-2 bg-opacity-80 bg-slate-100 sm:w-[90%] md:w-[70%] lg:w-[50%] sm:h-[80%] md:h-[95%]  rounded-xl">
           {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
           <p className="font-bold text-center text-xl ">
             {quotes[currentQuoteIndex]}
@@ -117,7 +117,9 @@ export default function FileUploadForm() {
             onBlur={formik.handleBlur}
           />
           {formik.touched.description && formik.errors.description && (
-            <p className="   text-red-500">{formik.errors.description}</p>
+
+            <p className=" text-sm text-red-500">{formik.errors.description}</p>
+
           )}
 
           {/* Upload Button */}
@@ -134,7 +136,9 @@ export default function FileUploadForm() {
             <VisuallyHiddenInput type="file" onChange={handleFileChange} />
           </Button>
           {formik.touched.file && formik.errors.file && (
-            <p className="  text-red-600">{formik.errors.file}</p>
+
+            <p className="text-sm text-red-600">{formik.errors.file}</p>
+
           )}
 
           {/* Preview */}
