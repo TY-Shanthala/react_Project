@@ -1,11 +1,11 @@
-import { Container, Typography } from "@mui/material";
+import { Box, Container, Typography } from "@mui/material";
 import React from "react";
 import TestimonialCard from "../Reusable Components/TestimonialCard";
 
 function Testimonial() {
   return (
-    <div className="w-full min-h-screen bg-white flex flex-col justify-center items-center mt-20">
-  <Container className="bg-slate-100 py-10 px-4">
+    <div className="w-full  min-h-screen bg-white flex flex-col justify-center items-center mt-2">
+  <Box className=" w-[87%] rounded-2xl bg-slate-100 py-10 px-4">
     {/* Header Section */}
     <Container className="mb-8 text-center">
       <Typography
@@ -30,7 +30,7 @@ function Testimonial() {
           <TestimonialCard key={index} />
         ))}
     </Container>
-  </Container>
+  </Box>
 </div>
   );
 }

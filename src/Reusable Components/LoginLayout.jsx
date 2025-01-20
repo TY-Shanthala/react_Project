@@ -5,6 +5,7 @@ const LoginLayout = ({ children, height = "", title }) => {
   return (
     <Box
       sx={{
+        marginTop:"10vh",
         minHeight: "100vh",
         display: "flex",
         justifyContent: "center",
@@ -35,7 +36,7 @@ const LoginLayout = ({ children, height = "", title }) => {
           },
         }}
       >
-        <div style={{flexBasis:"100%"}}>
+        <div style={{ flexBasis: "100%" }}>
           <Typography
             variant="h4"
             align="center"

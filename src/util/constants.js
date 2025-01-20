@@ -1,1 +1,0 @@
-export const bgFileUpload = "blob:https://chatgpt.com/c9faa08e-cdb7-485b-89a9-f2a5bffe0d19"

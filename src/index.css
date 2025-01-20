@@ -2,3 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
+* {
+  font-family: "Proxima Nova", system-ui, sans-serif !important;
+}

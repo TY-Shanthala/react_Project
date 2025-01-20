@@ -1,16 +1,16 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import LoginPage from "./pages/LoginPage";
 import RegisterPage from "./pages/RegisterPage";
 import FileUploadForm from "./pages/FileUploadForm";
-import Testimonial from "./pages/Testimonial";
-import Footer from "./pages/Footer";
-import Faq from "./pages/Faq";
 import HomePage from "./pages/HomePage";
+import LoginPage from '../src/pages/LoginPage';
+import Spinner from "./Reusable Components/Spinner";
+
+const Media = lazy(() => import("./pages/Media"));
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 const route = createBrowserRouter([
@@ -23,8 +23,20 @@ const route = createBrowserRouter([
     element: <RegisterPage />,
   },
   {
-    path: "formUpload",
+    path: "/formUpload",
     element: <FileUploadForm />,
+  },
+  {
+    path: "/login",
+    element: <LoginPage />,
+  },
+  {
+    path: "/media",
+    element: (
+      <Suspense fallback={<Spinner />}>
+        <Media />
+      </Suspense>
+    ),
   },
 ]);
 root.render(
