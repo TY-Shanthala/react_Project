@@ -95,7 +95,7 @@ export default function FileUploadForm() {
   return (
     <PageLayout>
       <div
-        style={{ backgroundImage: url(`${bgFileUpload}`) }}
+        style={{ backgroundImage: `url(${bgFileUpload})` }}
         className="mt-[9vh] flex flex-col  justify-center items-center gap-10 p-10 min-h-screen w-auto bg-no-repeat bg-cover bg-center"
       >
         <div className="flex flex-col justify-center items-center gap-6 shadow-2xl mt-5 p-2 bg-opacity-80 bg-slate-100 sm:w-[90%] md:w-[70%] lg:w-[50%] sm:h-[80%] md:h-[95%]  rounded-xl">
