@@ -7,7 +7,8 @@ import CloudUploadIcon from "@mui/icons-material/CloudUpload";
 import { styled } from "@mui/material/styles";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import  bgFileUpload  from "../util/images/soldier.webp"
+import bgFileUpload from "../utils/images/soldier.webp";
+import PageLayout from "../Components/PageLayout";
 
 const quotes = [
   "Your words may seem small, but to a soldier, they can feel like home.",
@@ -92,65 +93,73 @@ export default function FileUploadForm() {
   };
 
   return (
-    <div style={{backgroundImage:`url(${bgFileUpload})`}} className=' flex flex-col justify-center items-center gap-10 p-10 h-screen w-auto border-2 border-solid border-black bg-no-repeat bg-cover bg-center'>
-      
-      <div className="flex flex-col justify-center items-center gap-6 shadow-2xl mt-5 p-2 bg-opacity-80 bg-slate-100 sm:w-[90%] md:w-[70%] lg:w-[50%] sm:h-[80%] md:h-[95%] rounded-xl">
-        {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
-        <p className="font-bold text-center text-xl ">
-          {quotes[currentQuoteIndex]}
-        </p>
-
-        {/* Description */}
-        <TextField
-          className="w-[45%] text-gray overflow-ellipsis"
-          id="description"
-          name="description"
-          label="Share your thoughts..."
-          multiline
-          rows={4}
-          value={formik.values.description}
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-        />
-        {formik.touched.description && formik.errors.description && (
-          <p className="   text-red-500">{formik.errors.description}</p>
-        )}
-
-        {/* Upload Button */}
-        <Button
-          className="w-[45%]"
-          component="label"
-          variant="contained"
-          sx={{ backgroundColor: "#16a085" }}
-          startIcon={<CloudUploadIcon />}
-        >
-          <p className="text-xs p-1 md:text-xs lg:text-md text-center">
-            Upload image
+    <PageLayout>
+      <div
+        style={{ backgroundImage: url(`${bgFileUpload}`) }}
+        className="mt-[9vh] flex flex-col  justify-center items-center gap-10 p-10 min-h-screen w-auto bg-no-repeat bg-cover bg-center"
+      >
+        <div className="flex flex-col justify-center items-center gap-6 shadow-2xl mt-5 p-2 bg-opacity-80 bg-slate-100 sm:w-[90%] md:w-[70%] lg:w-[50%] sm:h-[80%] md:h-[95%]  rounded-xl">
+          {/* <LocalizationProvider dateAdapter={AdapterDayjs}> */}
+          <p className="font-bold text-center text-xl ">
+            {quotes[currentQuoteIndex]}
           </p>
-          <VisuallyHiddenInput type="file" onChange={handleFileChange} />
-        </Button>
-        {formik.touched.file && formik.errors.file && (
-          <p className="  text-red-600">{formik.errors.file}</p>
-        )}
 
-        {/* Preview */}
-        {filePreview && (
-          <div className=" w-[45%]" >
-            <img className="h-[25vh] w-[100%] object-fill" src={filePreview} alt="Preview" />
-          </div>
-        )}
+          {/* Description */}
+          <TextField
+            className="w-[45%] text-gray overflow-ellipsis"
+            id="description"
+            name="description"
+            label="Share your thoughts..."
+            multiline
+            rows={4}
+            value={formik.values.description}
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+          />
+          {formik.touched.description && formik.errors.description && (
+            <p className=" text-sm text-red-500">{formik.errors.description}</p>
+          )}
 
-        {/* Submit Button */}
-        <Button
+          {/* Upload Button */}
+          <Button
+            className="w-[45%]"
+            component="label"
+            variant="contained"
             sx={{ backgroundColor: "#16a085" }}
-          className="w-[45%] p-2"
-          variant="contained"
-          onClick={formik.handleSubmit}
-        >
-          Submit
-        </Button>
-        {/* </LocalizationProvider> */}
+            startIcon={<CloudUploadIcon />}
+          >
+            <p className="text-xs p-1 md:text-xs lg:text-md text-center">
+              Upload image
+            </p>
+            <VisuallyHiddenInput type="file" onChange={handleFileChange} />
+          </Button>
+          {formik.touched.file && formik.errors.file && (
+            <p className="text-sm text-red-600">{formik.errors.file}</p>
+          )}
+
+          {/* Preview */}
+          {filePreview && (
+            <div className=" w-[45%]">
+              <img
+                className="h-[25vh] w-[100%] object-fill"
+                src={filePreview}
+                alt="Preview"
+              />
+            </div>
+          )}
+
+          {/* Submit Button */}
+          <Button
+            sx={{ backgroundColor: "#16a085" }}
+            className="w-[45%] p-2"
+            variant="contained"
+            onClick={formik.handleSubmit}
+          >
+            Submit
+          </Button>
+          {/* </LocalizationProvider> */}
+        </div>
       </div>
-    </div>
+    </PageLayout>
   );
 }
